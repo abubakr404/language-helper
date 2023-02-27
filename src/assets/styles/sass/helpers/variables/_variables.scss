@@ -1,0 +1,80 @@
+@import "./colors";
+
+// color gradient
+
+$primary0: #000000;
+$primary5: #060e21;
+$primary10: #0f1628;
+$primary15: #101e3e;
+$primary20: #212f53;
+$primary25: #2d3b63;
+$primary30: #38466b;
+$primary35: #455276;
+$primary40: #505d84;
+$primary50: #626e92;
+$primary60: #92a2d2;
+$primary70: #adbae9;
+$primary80: #b7c5f2;
+$primary90: #d1d9f7;
+$primary95: #e6e9ff;
+$primary98: #f2f5ff;
+$primary99: #f5f7ff;
+$primary100: #ffffff;
+
+// surfaces gradient
+
+$mainSurfaceLight: linear-gradient(
+  135deg,
+  $primary95 -50%,
+  $primary99 25%,
+  $primary98 90%,
+  $primary95 170%
+);
+
+$mainSurfaceDark: linear-gradient(
+  135deg,
+  $primary25 -50%,
+  $primary5 25%,
+  $primary10 90%,
+  $primary25 170%
+);
+
+$secondSurfaceLight: linear-gradient(
+  135deg,
+  $primary99 -50%,
+  $primary95 25%,
+  $primary95 100%,
+  $primary98 170%
+);
+
+$secondSurfaceDark: linear-gradient(
+  135deg,
+  $primary15 -50%,
+  $primary10 25%,
+  $primary10 100%,
+  $primary15 170%
+);
+$secondSurfaceBlendMode: multiply, normal;
+
+$primaryGradient: linear-gradient(0deg, rgba($primary10, 0.4), rgba($primary10, 0.4)),
+  linear-gradient(
+    115deg,
+    rgba($primary40, 0.7) -5%,
+    rgba($primary30, 0.7) 40%,
+    rgba($primary20, 0.7) 70%,
+    rgba($primary10, 0.7) 130%
+  ),
+  rgba($primary20, 1);
+$primaryGradientBlendMode: normal, normal, multiply;
+
+$heroGradient: linear-gradient(0deg, rgba($primary20, 20%), rgba($primary20, 20%)),
+  radial-gradient(50% 50% at 50% 50%, $primary40 0%, $primary20 100%);
+
+// global sizing
+
+$headerHeight: 5rem;
+$sectionPadding: 6.25rem;
+
+$mainTransition: 0.4s;
+
+$mainFont: "Poppins";

@@ -1,0 +1,83 @@
+// flex mixins
+
+@mixin fDirection($direction: default) {
+  @if $direction != default {
+    flex-direction: if($direction == column, column, row);
+  }
+}
+
+@mixin fAlign($align: default) {
+  @if $align != default {
+    align-items: $align;
+  }
+}
+
+@mixin fJustify($justify: default) {
+  @if $justify != default {
+    justify-content: $justify;
+  }
+}
+
+@mixin f($direction: default, $justify: default, $align: default) {
+  display: flex;
+  @include fDirection($direction);
+  @include fJustify($justify);
+  @include fAlign($align);
+}
+
+// mixin fRow is mixin for make flex and its direction is row and has option to control the justify content
+
+@mixin fRow($justify: default, $align: default) {
+  @include f(row, $justify, $align);
+}
+
+@mixin fRowX($justify: default) {
+  @include fRow($justify);
+}
+
+@mixin fRowY($align: default) {
+  @include fRow(default, $align);
+}
+
+// mixin fCol is mixin for make flex and its direction is column and has option to control the align
+
+@mixin fCol($justify: default, $align: default) {
+  @include f(column, $justify, $align);
+}
+
+@mixin fColX($align: default) {
+  @include fCol(default, $align);
+}
+
+@mixin fColY($justify: default) {
+  @include fCol($justify);
+}
+
+// mixin fSpacer is mixin for make space between items in each direction by display the element flex
+
+@mixin fSpacer($direction: default, $alignCenter: true) {
+  @include f($direction, space-between);
+  @if $alignCenter != false {
+    align-items: center;
+  }
+}
+
+// mixin fGap is mixin for make element display flex and has option to control the gap
+
+@mixin fGap($direction: default, $gap: 1rem) {
+  @include f($direction);
+  gap: $gap;
+}
+
+// mixin fWrapper is mixin for make element display flex and flex wrap
+
+@mixin fWrapper($direction: default) {
+  @include f($direction);
+  flex-wrap: wrap;
+}
+
+// mixin fCenter is mixin for make the selector flex and make content center
+
+@mixin fCenter($align: center, $justify: center, $direction: default) {
+  @include f($direction, $justify, $align);
+}

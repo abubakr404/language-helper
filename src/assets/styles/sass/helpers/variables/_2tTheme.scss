@@ -1,0 +1,594 @@
+$mainSurface: linear-gradient(
+  135.79deg,
+  #e6e9ff -49.96%,
+  #f5f7ff 21.45%,
+  #f2f5ff 87.73%,
+  #e0e7ff 169.43%
+);
+$secondSurface: linear-gradient(
+  135.79deg,
+  #f5f7ff -49.96%,
+  #ebedff 23.17%,
+  #ebefff 98.58%,
+  #f2f5ff 169.43%
+);
+$portfolioSurface: url(Group_1-1.png),
+  linear-gradient(
+    135.79deg,
+    #f5f7ff -49.96%,
+    #ebedff 23.17%,
+    #ebefff 98.58%,
+    #f2f5ff 169.43%
+  );
+$portfolioSurfaceBlendMode: multiply, normal;
+$mainGradient: linear-gradient(
+    0deg,
+    rgba(10, 26, 61, 0.2),
+    rgba(10, 26, 61, 0.2)
+  ),
+  radial-gradient(50% 50% at 50% 50%, #505d84 0%, #212f53 100%);
+$patternGradient: linear-gradient(
+  to bottom,
+  #d9dfff 0%,
+  #d6dcf9 52.08%,
+  #c6cefb 71.88%,
+  #c5cfff 100%
+);
+$patternGradientBlendMode: multiply;
+$lighterPrimaryGradient: linear-gradient(
+    0deg,
+    rgba(56, 70, 107, 0.3),
+    rgba(56, 70, 107, 0.3)
+  ),
+  radial-gradient(50% 50% at 50% 50%, #38466b 0%, #212f53 81.25%);
+$primaryGradient: linear-gradient(
+    0deg,
+    rgba(10, 26, 61, 0.4),
+    rgba(10, 26, 61, 0.4)
+  ),
+  linear-gradient(
+    113.65deg,
+    rgba(80, 93, 132, 0.7) -5.28%,
+    rgba(56, 70, 107, 0.7) 40.44%,
+    rgba(33, 47, 83, 0.7) 68.42%,
+    rgba(10, 26, 61, 0.7) 127.26%
+  ),
+  rgba(33, 47, 83, 0.85);
+$primaryGradientBlendMode: normal, normal, multiply;
+$borderGradient: #0f1628;
+$white: #ffffff;
+$black: #000000;
+$primarySeed: #000f33;
+$materialThemeSysLightSurfaceTint: #505d84;
+$materialThemeSysLightSurfaceTintColor: #505d84;
+$materialThemeSysLightOnErrorContainer: #410002;
+$materialThemeSysLightOnError: #ffffff;
+$materialThemeSysLightErrorContainer: #ffdad6;
+$materialThemeSysLightOnTertiaryContainer: #251724;
+$materialThemeSysLightOnTertiary: #ffffff;
+$materialThemeSysLightTertiaryContainer: #f3dcee;
+$materialThemeSysLightTertiary: #6b5968;
+$materialThemeSysLightShadow: #000000;
+$materialThemeSysLightError: #ba1a1a;
+$materialThemeSysLightOutline: #77777b;
+$materialThemeSysLightOnBackground: #1b1b1d;
+$materialThemeSysLightBackground: #fffbfd;
+$materialThemeSysLightInverseOnSurface: #f3f0f2;
+$materialThemeSysLightInverseSurface: #303032;
+$materialThemeSysLightOnSurfaceVariant: #46464b;
+$materialThemeSysLightOnSurface: #1b1b1d;
+$materialThemeSysLightSurfaceVariant: #e3e2e7;
+$materialThemeSysLightSurface: #fffbfd;
+$materialThemeSysLightOnSecondaryContainer: #191b24;
+$materialThemeSysLightOnSecondary: #ffffff;
+$materialThemeSysLightSecondaryContainer: #e1e2ee;
+$materialThemeSysLightSecondary: #5c5e68;
+$materialThemeSysLightInversePrimary: #b7c5f2;
+$materialThemeSysLightOnPrimaryContainer: #0a1a3d;
+$materialThemeSysLightOnPrimary: #ffffff;
+$materialThemeSysLightPrimaryContainer: #dae2ff;
+$materialThemeSysLightPrimary: #505d84;
+$materialThemeSysDarkSurfaceTint: #b7c5f2;
+$materialThemeSysDarkSurfaceTintColor: #b7c5f2;
+$materialThemeSysDarkOnErrorContainer: #ffb4ab;
+$materialThemeSysDarkOnError: #690005;
+$materialThemeSysDarkErrorContainer: #93000a;
+$materialThemeSysDarkOnTertiaryContainer: #f3dcee;
+$materialThemeSysDarkOnTertiary: #3b2c39;
+$materialThemeSysDarkTertiaryContainer: #524250;
+$materialThemeSysDarkTertiary: #d7c0d2;
+$materialThemeSysDarkShadow: #000000;
+$materialThemeSysDarkError: #ffb4ab;
+$materialThemeSysDarkOutline: #919095;
+$materialThemeSysDarkOnBackground: #e4e2e4;
+$materialThemeSysDarkBackground: #1b1b1d;
+$materialThemeSysDarkInverseOnSurface: #303032;
+$materialThemeSysDarkInverseSurface: #e4e2e4;
+$materialThemeSysDarkOnSurfaceVariant: #c7c6cb;
+$materialThemeSysDarkOnSurface: #e4e2e4;
+$materialThemeSysDarkSurfaceVariant: #46464b;
+$materialThemeSysDarkSurface: #1b1b1d;
+$materialThemeSysDarkOnSecondaryContainer: #e1e2ee;
+$materialThemeSysDarkOnSecondary: #2d3039;
+$materialThemeSysDarkSecondaryContainer: #444650;
+$materialThemeSysDarkSecondary: #c4c6d2;
+$materialThemeSysDarkInversePrimary: #505d84;
+$materialThemeSysDarkOnPrimaryContainer: #dae2ff;
+$materialThemeSysDarkOnPrimary: #212f53;
+$materialThemeSysDarkPrimaryContainer: #38466b;
+$materialThemeSysDarkPrimary: #b7c5f2;
+$materialThemeRefErrorError0: #000000;
+$materialThemeRefErrorError10: #410002;
+$materialThemeRefErrorError20: #690005;
+$materialThemeRefErrorError30: #93000a;
+$materialThemeRefErrorError40: #ba1a1a;
+$materialThemeRefErrorError50: #de3730;
+$materialThemeRefErrorError60: #ff5449;
+$materialThemeRefErrorError70: #ff897d;
+$materialThemeRefErrorError80: #ffb4ab;
+$materialThemeRefErrorError90: #ffdad6;
+$materialThemeRefErrorError95: #ffedea;
+$materialThemeRefErrorError99: #fffbff;
+$materialThemeRefErrorError100: #ffffff;
+$materialThemeRefErrorError5: #2d0001;
+$materialThemeRefErrorError15: #540003;
+$materialThemeRefErrorError25: #7e0007;
+$materialThemeRefErrorError35: #a80710;
+$materialThemeRefErrorError98: #fff8f7;
+$materialThemeRefPrimaryPrimary0: #000000;
+$materialThemeRefPrimaryPrimary10: #001848;
+$materialThemeRefPrimaryPrimary20: #002b73;
+$materialThemeRefPrimaryPrimary30: #1e438f;
+$materialThemeRefPrimaryPrimary40: #3a5ba9;
+$materialThemeRefPrimaryPrimary50: #5574c4;
+$materialThemeRefPrimaryPrimary60: #6f8ee0;
+$materialThemeRefPrimaryPrimary70: #8aa9fc;
+$materialThemeRefPrimaryPrimary80: #b2c5ff;
+$materialThemeRefPrimaryPrimary90: #dae2ff;
+$materialThemeRefPrimaryPrimary95: #eef0ff;
+$materialThemeRefPrimaryPrimary99: #fefbff;
+$materialThemeRefPrimaryPrimary100: #ffffff;
+$materialThemeRefPrimaryPrimary5: #000e32;
+$materialThemeRefPrimaryPrimary15: #00225d;
+$materialThemeRefPrimaryPrimary25: #0d3783;
+$materialThemeRefPrimaryPrimary35: #2d4f9c;
+$materialThemeRefPrimaryPrimary98: #faf8ff;
+$materialThemeRefSecondarySecondary0: #000000;
+$materialThemeRefSecondarySecondary10: #151b2c;
+$materialThemeRefSecondarySecondary20: #2a3042;
+$materialThemeRefSecondarySecondary30: #404659;
+$materialThemeRefSecondarySecondary40: #585e71;
+$materialThemeRefSecondarySecondary50: #71768b;
+$materialThemeRefSecondarySecondary60: #8a90a5;
+$materialThemeRefSecondarySecondary70: #a5aac1;
+$materialThemeRefSecondarySecondary80: #c0c6dd;
+$materialThemeRefSecondarySecondary90: #dce2f9;
+$materialThemeRefSecondarySecondary95: #eef0ff;
+$materialThemeRefSecondarySecondary99: #fefbff;
+$materialThemeRefSecondarySecondary100: #ffffff;
+$materialThemeRefSecondarySecondary5: #0a1021;
+$materialThemeRefSecondarySecondary15: #1f2536;
+$materialThemeRefSecondarySecondary25: #353b4d;
+$materialThemeRefSecondarySecondary35: #4c5265;
+$materialThemeRefSecondarySecondary98: #faf8ff;
+$materialThemeRefTertiaryTertiary0: #000000;
+$materialThemeRefTertiaryTertiary10: #2b122b;
+$materialThemeRefTertiaryTertiary20: #422741;
+$materialThemeRefTertiaryTertiary30: #5a3d59;
+$materialThemeRefTertiaryTertiary40: #735471;
+$materialThemeRefTertiaryTertiary50: #8d6d8b;
+$materialThemeRefTertiaryTertiary60: #a886a5;
+$materialThemeRefTertiaryTertiary70: #c4a0c1;
+$materialThemeRefTertiaryTertiary80: #e1bbdc;
+$materialThemeRefTertiaryTertiary90: #fed7f9;
+$materialThemeRefTertiaryTertiary95: #ffebfa;
+$materialThemeRefTertiaryTertiary99: #fffbff;
+$materialThemeRefTertiaryTertiary100: #ffffff;
+$materialThemeRefTertiaryTertiary5: #1f0720;
+$materialThemeRefTertiaryTertiary15: #361d36;
+$materialThemeRefTertiaryTertiary25: #4d324d;
+$materialThemeRefTertiaryTertiary35: #664965;
+$materialThemeRefTertiaryTertiary98: #fff7fa;
+$materialThemeRefNeutralNeutral0: #000000;
+$materialThemeRefNeutralNeutral10: #1b1b1f;
+$materialThemeRefNeutralNeutral20: #303034;
+$materialThemeRefNeutralNeutral30: #46464a;
+$materialThemeRefNeutralNeutral40: #5e5e62;
+$materialThemeRefNeutralNeutral50: #77777a;
+$materialThemeRefNeutralNeutral60: #919094;
+$materialThemeRefNeutralNeutral70: #acaaaf;
+$materialThemeRefNeutralNeutral80: #c7c6ca;
+$materialThemeRefNeutralNeutral90: #e4e2e6;
+$materialThemeRefNeutralNeutral95: #f2f0f4;
+$materialThemeRefNeutralNeutral99: #fefbff;
+$materialThemeRefNeutralNeutral100: #ffffff;
+$materialThemeRefNeutralNeutralNaN: #ffffff;
+$materialThemeRefNeutralNeutral5: #101114;
+$materialThemeRefNeutralNeutral15: #252629;
+$materialThemeRefNeutralNeutral25: #3b3b3f;
+$materialThemeRefNeutralNeutral35: #525256;
+$materialThemeRefNeutralNeutral98: #fbf8fd;
+$materialThemeRefNeutralVariantNeutralVariant0: #000000;
+$materialThemeRefNeutralVariantNeutralVariant10: #191b23;
+$materialThemeRefNeutralVariantNeutralVariant20: #2e3038;
+$materialThemeRefNeutralVariantNeutralVariant30: #45464f;
+$materialThemeRefNeutralVariantNeutralVariant40: #5c5e67;
+$materialThemeRefNeutralVariantNeutralVariant50: #757780;
+$materialThemeRefNeutralVariantNeutralVariant60: #8f909a;
+$materialThemeRefNeutralVariantNeutralVariant70: #aaabb4;
+$materialThemeRefNeutralVariantNeutralVariant80: #c5c6d0;
+$materialThemeRefNeutralVariantNeutralVariant90: #e1e2ec;
+$materialThemeRefNeutralVariantNeutralVariant95: #f0f0fa;
+$materialThemeRefNeutralVariantNeutralVariant99: #fefbff;
+$materialThemeRefNeutralVariantNeutralVariant100: #ffffff;
+$materialThemeRefNeutralVariantNeutralVariant5: #0f1118;
+$materialThemeRefNeutralVariantNeutralVariant15: #23262d;
+$materialThemeRefNeutralVariantNeutralVariant25: #393b43;
+$materialThemeRefNeutralVariantNeutralVariant35: #50525a;
+$materialThemeRefNeutralVariantNeutralVariant98: #faf8ff;
+$materialThemeKeyColorsPrimary: #3a5ba9;
+$materialThemeKeyColorsSecondary: #585e71;
+$materialThemeKeyColorsTertiary: #735471;
+$materialThemeKeyColorsError: #ba1a1a;
+$materialThemeKeyColorsNeutral: #5e5e62;
+$materialThemeKeyColorsNeutralVariant: #5c5e67;
+$materialThemeSurfacesLightSurface1: #505d84;
+$materialThemeSurfacesLightSurface2: #505d84;
+$materialThemeSurfacesLightSurface3: #505d84;
+$materialThemeSurfacesLightSurface4: #505d84;
+$materialThemeSurfacesLightSurface5: #505d84;
+$materialThemeSurfacesDarkSurface1: #b7c5f2;
+$materialThemeSurfacesDarkSurface2: #b7c5f2;
+$materialThemeSurfacesDarkSurface3: #b7c5f2;
+$materialThemeSurfacesDarkSurface4: #b7c5f2;
+$materialThemeSurfacesDarkSurface5: #b7c5f2;
+$materialThemeExtendedInfoSeed: #008e8e;
+$materialThemeExtendedInfoValue: #008e8e;
+$materialThemeExtendedInfoLightColor: #006a6a;
+$materialThemeExtendedInfoLightOnColor: #ffffff;
+$materialThemeExtendedInfoLightColorContainer: #6ff7f6;
+$materialThemeExtendedInfoLightOnColorContainer: #002020;
+$materialThemeExtendedInfoLightInfo: #006a6a;
+$materialThemeExtendedInfoLightOnInfo: #ffffff;
+$materialThemeExtendedInfoLightInfoContainer: #6ff7f6;
+$materialThemeExtendedInfoLightOnInfoContainer: #002020;
+$materialThemeExtendedInfoDarkColor: #4cdada;
+$materialThemeExtendedInfoDarkOnColor: #003737;
+$materialThemeExtendedInfoDarkColorContainer: #004f4f;
+$materialThemeExtendedInfoDarkOnColorContainer: #6ff7f6;
+$materialThemeExtendedInfoDarkInfo: #4cdada;
+$materialThemeExtendedInfoDarkOnInfo: #003737;
+$materialThemeExtendedInfoDarkInfoContainer: #004f4f;
+$materialThemeExtendedInfoDarkOnInfoContainer: #6ff7f6;
+$materialThemeExtendedInfoGroupTone0: #000000;
+$materialThemeExtendedInfoGroupTone5: #001414;
+$materialThemeExtendedInfoGroupTone10: #002020;
+$materialThemeExtendedInfoGroupTone15: #002b2b;
+$materialThemeExtendedInfoGroupTone20: #003737;
+$materialThemeExtendedInfoGroupTone25: #004343;
+$materialThemeExtendedInfoGroupTone30: #004f4f;
+$materialThemeExtendedInfoGroupTone35: #005c5c;
+$materialThemeExtendedInfoGroupTone40: #006a6a;
+$materialThemeExtendedInfoGroupTone50: #008585;
+$materialThemeExtendedInfoGroupTone60: #00a1a1;
+$materialThemeExtendedInfoGroupTone70: #1ebebe;
+$materialThemeExtendedInfoGroupTone80: #4cdada;
+$materialThemeExtendedInfoGroupTone90: #6ff7f6;
+$materialThemeExtendedInfoGroupTone95: #adfffe;
+$materialThemeExtendedInfoGroupTone98: #e2fffe;
+$materialThemeExtendedInfoGroupTone99: #f1fffe;
+$materialThemeExtendedInfoGroupTone100: #ffffff;
+$materialThemeExtendedWarningSeed: #bca000;
+$materialThemeExtendedWarningValue: #bca000;
+$materialThemeExtendedWarningLightColor: #6f5d00;
+$materialThemeExtendedWarningLightOnColor: #ffffff;
+$materialThemeExtendedWarningLightColorContainer: #ffe262;
+$materialThemeExtendedWarningLightOnColorContainer: #221b00;
+$materialThemeExtendedWarningLightWarning: #6f5d00;
+$materialThemeExtendedWarningLightOnWarning: #ffffff;
+$materialThemeExtendedWarningLightWarningContainer: #ffe262;
+$materialThemeExtendedWarningLightOnWarningContainer: #221b00;
+$materialThemeExtendedWarningDarkColor: #e4c535;
+$materialThemeExtendedWarningDarkOnColor: #3a3000;
+$materialThemeExtendedWarningDarkColorContainer: #534600;
+$materialThemeExtendedWarningDarkOnColorContainer: #ffe262;
+$materialThemeExtendedWarningDarkWarning: #e4c535;
+$materialThemeExtendedWarningDarkOnWarning: #3a3000;
+$materialThemeExtendedWarningDarkWarningContainer: #534600;
+$materialThemeExtendedWarningDarkOnWarningContainer: #ffe262;
+$materialThemeExtendedWarningGroupTone0: #000000;
+$materialThemeExtendedWarningGroupTone5: #151100;
+$materialThemeExtendedWarningGroupTone10: #221b00;
+$materialThemeExtendedWarningGroupTone15: #2d2500;
+$materialThemeExtendedWarningGroupTone20: #3a3000;
+$materialThemeExtendedWarningGroupTone25: #463b00;
+$materialThemeExtendedWarningGroupTone30: #534600;
+$materialThemeExtendedWarningGroupTone35: #615200;
+$materialThemeExtendedWarningGroupTone40: #6f5d00;
+$materialThemeExtendedWarningGroupTone50: #8b7600;
+$materialThemeExtendedWarningGroupTone60: #a98f00;
+$materialThemeExtendedWarningGroupTone70: #c6aa14;
+$materialThemeExtendedWarningGroupTone80: #e4c535;
+$materialThemeExtendedWarningGroupTone90: #ffe262;
+$materialThemeExtendedWarningGroupTone95: #fff0bf;
+$materialThemeExtendedWarningGroupTone98: #fff9ee;
+$materialThemeExtendedWarningGroupTone99: #fffbff;
+$materialThemeExtendedWarningGroupTone100: #ffffff;
+$materialThemeExtendedDangerSeed: #8d2202;
+$materialThemeExtendedDangerValue: #8d2202;
+$materialThemeExtendedDangerLightColor: #aa3616;
+$materialThemeExtendedDangerLightOnColor: #ffffff;
+$materialThemeExtendedDangerLightColorContainer: #ffdbd1;
+$materialThemeExtendedDangerLightOnColorContainer: #3c0800;
+$materialThemeExtendedDangerLightDanger: #ab351f;
+$materialThemeExtendedDangerLightOnDanger: #ffffff;
+$materialThemeExtendedDangerLightDangerContainer: #ffdad3;
+$materialThemeExtendedDangerLightOnDangerContainer: #3e0400;
+$materialThemeExtendedDangerDarkColor: #ffb5a1;
+$materialThemeExtendedDangerDarkOnColor: #611300;
+$materialThemeExtendedDangerDarkColorContainer: #881f00;
+$materialThemeExtendedDangerDarkOnColorContainer: #ffdbd1;
+$materialThemeExtendedDangerDarkDanger: #ffb4a5;
+$materialThemeExtendedDangerDarkOnDanger: #650b00;
+$materialThemeExtendedDangerDarkDangerContainer: #891d09;
+$materialThemeExtendedDangerDarkOnDangerContainer: #ffdad3;
+$materialThemeExtendedDangerGroupTone0: #000000;
+$materialThemeExtendedDangerGroupTone5: #290400;
+$materialThemeExtendedDangerGroupTone10: #3c0800;
+$materialThemeExtendedDangerGroupTone15: #4e0e00;
+$materialThemeExtendedDangerGroupTone20: #611300;
+$materialThemeExtendedDangerGroupTone25: #741900;
+$materialThemeExtendedDangerGroupTone30: #881f00;
+$materialThemeExtendedDangerGroupTone35: #992b0a;
+$materialThemeExtendedDangerGroupTone40: #aa3616;
+$materialThemeExtendedDangerGroupTone50: #cb4e2c;
+$materialThemeExtendedDangerGroupTone60: #ed6743;
+$materialThemeExtendedDangerGroupTone70: #ff8b6c;
+$materialThemeExtendedDangerGroupTone80: #ffb5a1;
+$materialThemeExtendedDangerGroupTone90: #ffdbd1;
+$materialThemeExtendedDangerGroupTone95: #ffede9;
+$materialThemeExtendedDangerGroupTone98: #fff8f6;
+$materialThemeExtendedDangerGroupTone99: #fffbff;
+$materialThemeExtendedDangerGroupTone100: #ffffff;
+$materialThemeExtendedSuccessValue: #228213;
+$materialThemeExtendedSuccessGroup: #ffffff;
+$materialThemeExtendedSuccessLightSuccess: #0c6e00;
+$materialThemeExtendedSuccessLightOnSuccess: #ffffff;
+$materialThemeExtendedSuccessLightSuccessContainer: #98fa7e;
+$materialThemeExtendedSuccessLightOnSuccessContainer: #012200;
+$materialThemeExtendedSuccessDarkSuccess: #7cdc65;
+$materialThemeExtendedSuccessDarkOnSuccess: #033900;
+$materialThemeExtendedSuccessDarkSuccessContainer: #075300;
+$materialThemeExtendedSuccessDarkOnSuccessContainer: #98fa7e;
+$materialThemeExtendedInfoValue: #008e8e;
+$materialThemeExtendedInfoGroup: #ffffff;
+$materialThemeExtendedInfoLightInfo: #006a6a;
+$materialThemeExtendedInfoLightOnInfo: #ffffff;
+$materialThemeExtendedInfoLightInfoContainer: #6ff7f6;
+$materialThemeExtendedInfoLightOnInfoContainer: #002020;
+$materialThemeExtendedInfoDarkInfo: #4cdada;
+$materialThemeExtendedInfoDarkOnInfo: #003737;
+$materialThemeExtendedInfoDarkInfoContainer: #004f4f;
+$materialThemeExtendedInfoDarkOnInfoContainer: #6ff7f6;
+$materialThemeExtendedWarningValue: #bfa003;
+$materialThemeExtendedWarningGroup: #ffffff;
+$materialThemeExtendedWarningLightWarning: #705d00;
+$materialThemeExtendedWarningLightOnWarning: #ffffff;
+$materialThemeExtendedWarningLightWarningContainer: #ffe170;
+$materialThemeExtendedWarningLightOnWarningContainer: #221b00;
+$materialThemeExtendedWarningDarkWarning: #e6c435;
+$materialThemeExtendedWarningDarkOnWarning: #3a3000;
+$materialThemeExtendedWarningDarkWarningContainer: #544600;
+$materialThemeExtendedWarningDarkOnWarningContainer: #ffe170;
+$materialThemeExtendedDangerValue: #8e200c;
+$materialThemeExtendedDangerGroup: #ffffff;
+$materialThemeExtendedDangerLightDanger: #ab351f;
+$materialThemeExtendedDangerLightOnDanger: #ffffff;
+$materialThemeExtendedDangerLightDangerContainer: #ffdad3;
+$materialThemeExtendedDangerLightOnDangerContainer: #3e0400;
+$materialThemeExtendedDangerDarkDanger: #ffb4a5;
+$materialThemeExtendedDangerDarkOnDanger: #650b00;
+$materialThemeExtendedDangerDarkDangerContainer: #891d09;
+$materialThemeExtendedDangerDarkOnDangerContainer: #ffdad3;
+$materialThemeExtendedSuccessSeed: #37b75e;
+$materialThemeExtendedSuccessValue: #37b75e;
+$materialThemeExtendedSuccessLightColor: #006e2f;
+$materialThemeExtendedSuccessLightOnColor: #ffffff;
+$materialThemeExtendedSuccessLightColorContainer: #80fc9a;
+$materialThemeExtendedSuccessLightOnColorContainer: #002109;
+$materialThemeExtendedSuccessLightSuccess: #006e2f;
+$materialThemeExtendedSuccessLightOnSuccess: #ffffff;
+$materialThemeExtendedSuccessLightSuccessContainer: #80fc9a;
+$materialThemeExtendedSuccessLightOnSuccessContainer: #002109;
+$materialThemeExtendedSuccessDarkColor: #63de80;
+$materialThemeExtendedSuccessDarkOnColor: #003915;
+$materialThemeExtendedSuccessDarkColorContainer: #005322;
+$materialThemeExtendedSuccessDarkOnColorContainer: #80fc9a;
+$materialThemeExtendedSuccessDarkSuccess: #63de80;
+$materialThemeExtendedSuccessDarkOnSuccess: #003915;
+$materialThemeExtendedSuccessDarkSuccessContainer: #005322;
+$materialThemeExtendedSuccessDarkOnSuccessContainer: #80fc9a;
+$materialThemeExtendedSuccessGroupTone0: #000000;
+$materialThemeExtendedSuccessGroupTone5: #001505;
+$materialThemeExtendedSuccessGroupTone10: #002109;
+$materialThemeExtendedSuccessGroupTone15: #002d0f;
+$materialThemeExtendedSuccessGroupTone20: #003915;
+$materialThemeExtendedSuccessGroupTone25: #00461b;
+$materialThemeExtendedSuccessGroupTone30: #005322;
+$materialThemeExtendedSuccessGroupTone35: #006028;
+$materialThemeExtendedSuccessGroupTone40: #006e2f;
+$materialThemeExtendedSuccessGroupTone50: #008a3d;
+$materialThemeExtendedSuccessGroupTone60: #1ea64f;
+$materialThemeExtendedSuccessGroupTone70: #44c267;
+$materialThemeExtendedSuccessGroupTone80: #63de80;
+$materialThemeExtendedSuccessGroupTone90: #80fc9a;
+$materialThemeExtendedSuccessGroupTone95: #c5ffc9;
+$materialThemeExtendedSuccessGroupTone98: #ebffe8;
+$materialThemeExtendedSuccessGroupTone99: #f6fff2;
+$materialThemeExtendedSuccessGroupTone100: #ffffff;
+@mixin logoSArrow {
+  font-size: 0.875rem;
+  font-family: "Rancho";
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin navBar {
+  font-size: 1.125rem;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeLabelSmall {
+  font-size: 0.688rem;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeLabelMedium {
+  font-size: 0.75rem;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeLabelLarge {
+  font-size: 0.875rem;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeBodySmall {
+  font-size: 0.75rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeBodyMedium {
+  font-size: 0.875rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeBodyLarge {
+  font-size: 1rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeHeadlineSmall {
+  font-size: 1.5rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 32px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeHeadlineMedium {
+  font-size: 1.75rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 36px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeHeadlineLarge {
+  font-size: 2rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 40px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeDisplaySmall {
+  font-size: 2.25rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 44px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeDisplayMedium {
+  font-size: 2.812rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 52px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeDisplayLarge {
+  font-size: 3.562rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 64px;
+  letter-spacing: -0.25px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeTitleSmall {
+  font-size: 0.875rem;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeTitleMedium {
+  font-size: 1rem;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin materialThemeTitleLarge {
+  font-size: 1.375rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 28px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin abubakrAffectsLogoSShadow {
+  box-shadow: -0.5px 0px 0px #4cdadc, 0.5px 0.5px 0px #b1283f;
+}
+@mixin abubakrAffectsLogoSShadow {
+  box-shadow: -0.5px 0px 0px #4cdadc, 0.5px 0.5px 0px #b1283f;
+}

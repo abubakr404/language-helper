@@ -1,0 +1,142 @@
+@use "../../sass/TuTiHelper" as *;
+
+.textCliper {
+  @extend %textCliper;
+}
+
+.fCenter,
+.fCenterH,
+.fCenterV {
+  @extend %fCenter;
+}
+.fCenterV {
+  flex-direction: column;
+}
+.fColC {
+  @extend %fColC;
+}
+.fColS {
+  @extend %fColS;
+}
+
+.fSpacerXC,
+.fSpacerC {
+  @extend %fSpacerC;
+}
+.fSpacerYC {
+  @extend %fSpacerYC;
+}
+
+.fSpacerX,
+.fSpacer {
+  @extend %fSpacer;
+}
+.fSpacerY {
+  @extend %fSpacerY;
+}
+
+.z1,
+.rZ1 {
+  @extend %z1;
+}
+
+.g-col-lg-3 {
+  @include responGridCol(18.75rem, 2.5rem);
+  @include in {
+    grid-template-columns: 1fr;
+  }
+}
+
+.g-col-lg-4 {
+  @include responGridCol(15.625rem, 1.5rem);
+  @include in {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overlay {
+  @extend %overlay;
+}
+
+.table-tuti {
+  display: grid;
+  gap: 1rem;
+  color: var(--Ab-primary);
+  border-radius: 0.625rem;
+  margin: 2rem 0;
+  overflow: hidden;
+  .haed {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .table-header {
+    background-color: #b7c5f28c;
+  }
+  .table-row {
+    .data {
+      display: flex;
+      gap: 0.3125rem;
+      align-items: center;
+    }
+    &:nth-of-type(even) {
+      background-color: #b7c5f24a;
+    }
+  }
+  .table-header,
+  .table-body {
+    border-radius: 0.625rem;
+    border: solid;
+    border-width: 0.125rem 0.1875rem 0.1875rem 0.125rem;
+  }
+  .table-header,
+  .row-loading,
+  .table-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    align-items: center;
+    padding: 0.625rem 1rem;
+    min-height: 2.5rem;
+  }
+  .table-loading {
+    background-color: #d3dbf8;
+    padding: 1rem;
+    width: 100%;
+    display: grid;
+    gap: 0.875rem;
+    border-radius: 0.4625rem;
+    .col-loading {
+      display: flex;
+      gap: 0.875rem;
+      padding-right: 2rem;
+    }
+    .long,
+    .short {
+      background-color: #212f53;
+      border-radius: 0.625rem;
+      height: 0.625rem;
+    }
+    .long {
+      opacity: 0.4;
+      width: 55%;
+    }
+    .short {
+      opacity: 0.7;
+      width: 35%;
+    }
+  }
+  .error-table {
+    border-radius: 0.375rem;
+    a {
+      color: #a31313;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    p {
+      margin: 0;
+      padding: 0.625rem 1rem;
+      text-align: center;
+      background-color: #ab351f52;
+      font-weight: 500;
+    }
+  }
+}
