@@ -1,0 +1,33 @@
+.widget {
+  flex: 1;
+  min-height: 8rem;
+  box-shadow: var(--main-shadow);
+  padding: 1.5rem;
+  color: var(--text-light);
+  border-radius: var(--main-border-radius);
+  @extend %fSpacer;
+  .left {
+    @extend %fSpacerY;
+    font-size: 0.875rem;
+    .counter {
+      font-size: 3rem;
+    }
+    .link {
+      font-size: 0.75rem;
+      border-bottom: 0.0625rem solid;
+      width: max-content;
+    }
+  }
+  .right {
+    @extend %fSpacerY;
+  }
+  &:nth-of-type(1) {
+    background-color: #3f51b5;
+  }
+  &:nth-of-type(2) {
+    background-color: #009688;
+  }
+  &:nth-of-type(3) {
+    background-color: #e91e63;
+  }
+}

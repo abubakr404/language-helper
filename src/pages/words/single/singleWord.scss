@@ -1,0 +1,25 @@
+.client-container {
+  @extend %fRowCY;
+  gap: 1.5rem;
+  .avatar-container {
+    width: 15rem;
+    height: 15rem;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.client-details {
+  flex: 1;
+  font-size: 0.875rem;
+  padding: 1.5rem;
+  border-radius: var(--main-border-radius);
+  .details {
+    @extend %fCol;
+    gap: 0.25rem;
+  }
+  .contact {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

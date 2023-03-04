@@ -1,0 +1,68 @@
+.navbar {
+  background: var(--element);
+  min-height: var(--header-height);
+  font-size: 0.75em;
+  display: flex;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10000000;
+  box-shadow: var(--main-shadow);
+  .wrapper {
+    @extend %fSpacerC;
+    flex: 1;
+    .items {
+      display: flex;
+    }
+    .item {
+      cursor: pointer;
+      margin-left: 1.5rem;
+      @extend %fRowC;
+      gap: 0.5rem;
+      position: relative;
+    }
+    .info {
+      @extend %fRowC;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      .avatar {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        border: 1px solid;
+      }
+      h4 {
+        margin: 0;
+      }
+    }
+  }
+  .dropdown {
+    @extend %transition;
+    @extend %hPCenter;
+    position: absolute;
+    top: calc(100% + 3.5rem);
+    background: var(--text-element);
+    color: var(--text);
+    padding: 0.625rem 1rem;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-shadow);
+    width: 100%;
+    visibility: hidden;
+    &.active {
+      top: calc(100% + 1.875rem);
+      visibility: visible;
+    }
+    &::before {
+      @include arrow(0.5rem, var(--text-element));
+    }
+    ul.options-list {
+      @extend %fCol;
+      gap: 0.5rem;
+      li,
+      a {
+        @extend %fRowC;
+        gap: 0.5rem;
+      }
+    }
+  }
+}

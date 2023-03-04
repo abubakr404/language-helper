@@ -85,6 +85,17 @@ body {
   @include madiaContainer;
 }
 
+@keyframes backgroundLight {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
 .app {
   @extend %fCol;
   height: 100vh;
@@ -92,8 +103,21 @@ body {
   overflow: auto;
   max-width: 100%;
   color-scheme: var(--scheme-color);
-  background: var(--surface);
-  color: var(--text-element);
+  // background: var(--surface);
+  color: #e6f4f1;
+  background: linear-gradient(
+    135deg,
+    #55acdd,
+    #6298d7,
+    #7782c9,
+    #8b6ab2,
+    #9a5193,
+    #9f376e
+  );
+  background-size: 1200% 1200%;
+
+  animation: backgroundLight 10s ease infinite;
+
   @media (prefers-color-scheme: light) {
     --primary: var(--light-primary);
     --on-primary: var(--light-on-primary);
@@ -205,3 +229,18 @@ body {
     }
   }
 }
+
+@import "./components/navbar/navbar";
+@import "./components/sidebar/sidebar";
+@import "./components/widget/widget";
+@import "./components/table/table";
+@import "./components/layouts/layout";
+@import "./pages/login/login";
+@import "./pages/signup/signup";
+@import "./pages/home/home";
+@import "./pages/dashboard/dashboard";
+@import "./pages/words/list/listWords";
+@import "./pages/words/single/singleWord";
+@import "./pages/words/new/newWord";
+@import "./pages/profile/profile";
+@import "./pages/errors/errors";

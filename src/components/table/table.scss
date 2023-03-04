@@ -1,0 +1,26 @@
+.tableTT {
+  min-width: max-content;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  box-shadow: var(--main-shadow);
+  .table-head {
+    background-color: #b7c5f28c;
+    .head-cell {
+      text-transform: capitalize;
+      text-align: start;
+      color: var(--dark);
+    }
+  }
+  .table-head,
+  .table-body {
+    border: 0.125rem solid;
+  }
+  .table-row:nth-of-type(even) {
+    background-color: #b7c5f24d;
+  }
+  .table-cell {
+    height: 2.5rem;
+    padding: 0.3125rem 0.875rem;
+  }
+}
