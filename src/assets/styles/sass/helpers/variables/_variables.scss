@@ -2,59 +2,51 @@
 
 // color gradient
 
-$primary0: #000000;
-$primary5: #060e21;
-$primary10: #0f1628;
-$primary15: #101e3e;
-$primary20: #212f53;
-$primary25: #2d3b63;
-$primary30: #38466b;
-$primary35: #455276;
-$primary40: #505d84;
-$primary50: #626e92;
-$primary60: #92a2d2;
-$primary70: #adbae9;
-$primary80: #b7c5f2;
-$primary90: #d1d9f7;
-$primary95: #e6e9ff;
-$primary98: #f2f5ff;
-$primary99: #f5f7ff;
-$primary100: #ffffff;
+$primary0: $TuTiPrimary0;
+$primary10: $TuTiPrimary10;
+$primary20: $TuTiPrimary20;
+$primary30: $TuTiPrimary30;
+$primary40: $TuTiPrimary40;
+$primary50: $TuTiPrimary50;
+$primary60: $TuTiPrimary60;
+$primary70: $TuTiPrimary70;
+$primary80: $TuTiPrimary80;
+$primary90: $TuTiPrimary90;
+$primary100: $TuTiPrimary100;
+
+// primary
+
+// light primary
+$lightPrimary: $primary40;
+$lightOnPrimary: $primary100;
+$lightInversePrimary: $primary80;
+$lightPrimaryContainer: $primary90;
+$lightOnPrimaryContainer: $primary10;
+
+// dark primary
+$darkPrimary: $primary80;
+$darkOnPrimary: $primary20;
+$darkInversePrimary: $primary40;
+$darkPrimaryContainer: $primary30;
+$darkOnPrimaryContainer: $primary100;
 
 // surfaces gradient
 
 $mainSurfaceLight: linear-gradient(
   135deg,
-  $primary95 -50%,
-  $primary99 25%,
-  $primary98 90%,
-  $primary95 170%
+  $primary80 -50%,
+  $primary100 25%,
+  $primary90 90%,
+  $primary80 170%
 );
 
 $mainSurfaceDark: linear-gradient(
   135deg,
-  $primary25 -50%,
-  $primary5 25%,
-  $primary10 90%,
-  $primary25 170%
-);
-
-$secondSurfaceLight: linear-gradient(
-  135deg,
-  $primary99 -50%,
-  $primary95 25%,
-  $primary95 100%,
-  $primary98 170%
-);
-
-$secondSurfaceDark: linear-gradient(
-  135deg,
-  $primary15 -50%,
+  $primary30 -50%,
   $primary10 25%,
-  $primary10 100%,
-  $primary15 170%
+  $primary20 90%,
+  $primary30 170%
 );
-$secondSurfaceBlendMode: multiply, normal;
 
 $primaryGradient: linear-gradient(0deg, rgba($primary10, 0.4), rgba($primary10, 0.4)),
   linear-gradient(

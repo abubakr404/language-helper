@@ -9,9 +9,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../../store/auth-slice";
+import { themeActions } from "../../store/theme-slice";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
+  const dispatch = useDispatch();
+  const userName = useSelector((state) => state.auth.isLoggedIn.user.name);
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -20,7 +25,7 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faSearch} />
         </div>
         <div className="items">
-          <div className="item">
+          <div className="item" onClick={() => dispatch(themeActions.toggle())}>
             <FontAwesomeIcon icon={faCircleHalfStroke} />
             <span className="title">Toggle Theme</span>
           </div>
@@ -34,7 +39,7 @@ const Navbar = () => {
           </div> */}
           <div className="item">
             <div className="info" onClick={() => setDropdown((prev) => !prev)}>
-              <h4>Abubakr Hisham</h4>
+              <h4>{userName}</h4>
             </div>
             <div className={dropdown ? "dropdown active" : "dropdown"}>
               <ul className="options-list">
@@ -44,7 +49,7 @@ const Navbar = () => {
                     <span>Profile</span>
                   </Link>
                 </li>
-                <li>
+                <li onClick={() => dispatch(authActions.logout())}>
                   <FontAwesomeIcon icon={faRightFromBracket} />
                   <span>logout</span>
                 </li>

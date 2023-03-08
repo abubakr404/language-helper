@@ -6,56 +6,112 @@ html {
 
 :root {
   /* --------------- light colors set ----------------- */
-
   --surface-light: #{$mainSurfaceLight};
-  --second-surface-light: #{$secondSurfaceLight};
 
-  --light-primary: #505d84;
-  --light-primary-container: #dae2ff;
-  --light-on-primary: #ffffff;
-  --light-on-primary-container: #0a1a3d;
-
-  --background-light: var(--light-primary);
-  --element-light: var(--second-surface-light);
-  --text-light: var(--light-on-primary);
-  --text-element-light: var(--dark-on-primary);
+  --light-primary: #{$lightPrimary};
+  --light-on-primary: #{$lightOnPrimary};
+  --light-inverse-primary: #{$lightInversePrimary};
+  --light-primary-container: #{$lightPrimaryContainer};
+  --light-on-primary-container: #{$lightOnPrimaryContainer};
+  --light-low-opacity-primary-container: #{rgba($lightPrimaryContainer, 0.4)};
 
   /* --------------- dark colors set ----------------- */
-
   --surface-dark: #{$mainSurfaceDark};
-  --second-surface-dark: #{$secondSurfaceDark};
 
-  --dark-primary: #b7c5f2;
-  --dark-primary-container: #38466b;
-  --dark-on-primary: #212f53;
-  --dark-on-primary-container: #dae2ff;
-
-  --background-dark: var(--dark-primary);
-  --element-dark: var(--dark-primary-container);
-  --text-dark: var(--dark-on-primary);
-  --text-element-dark: var(--dark-on-primary-container);
-
-  /* --------------- geanral colors set ----------------- */
-
-  --success: #0f9263;
-  --danger: #c5182f;
-  --warning: #b89326;
-  --info: #009696;
+  --dark-primary: #{$darkPrimary};
+  --dark-on-primary: #{$darkOnPrimary};
+  --dark-inverse-primary: #{$darkInversePrimary};
+  --dark-primary-container: #{$darkPrimaryContainer};
+  --dark-on-primary-container: #{$darkOnPrimaryContainer};
+  --dark-low-opacity-primary-container: #{rgba($darkPrimaryContainer, 0.35)};
 
   /* --------------- geanral var set ----------------- */
 
-  --main-transition: 0.3s;
+  --main-transition: #{$mainTransition};
 
-  --main-border-color: #{$borderGradient};
+  --main-border-color: var(--dark-primary);
 
   --main-border-radius: 0.3125rem;
-  --dark-shadow: 0 0 0.3125rem 0 #222222bd;
-  --light-shadow: 0 0 0.3125rem 0 #22222222;
+
+  --dark-shadow: 0 0.875rem 1.875rem #{rgba($primary10, 0.2)},
+    0 0.625rem 0.625rem #{rgba($primary10, 0.2)};
+  --light-shadow: 0 0.875rem 1.875rem #{rgba($primary50, 0.2)},
+    0 0.625rem 0.625rem #{rgba($primary50, 0.2)};
 
   --header-height: 5rem;
   --sidebar-width: 15rem;
   --main-padding-top: 2rem;
   --main-padding-bottom: 2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .app {
+    --primary: var(--light-primary);
+    --on-primary: var(--light-on-primary);
+    --inverse-primary: var(--light-inverse-primary);
+    --primary-container: var(--light-primary-container);
+    --on-primary-container: var(--light-on-primary-container);
+    --low-opacity-primary-container: var(--light-low-opacity-primary-container);
+
+    --surface: var(--surface-light);
+
+    --border-color: var(--border-color-light);
+    --border-color-inverse: var(--border-color-dark);
+
+    --main-shadow: var(--light-shadow);
+    --scheme-color: light;
+    &.toggleMode {
+      --primary: var(--dark-primary);
+      --on-primary: var(--dark-on-primary);
+      --inverse-primary: var(--dark-inverse-primary);
+      --primary-container: var(--dark-primary-container);
+      --on-primary-container: var(--dark-on-primary-container);
+      --low-opacity-primary-container: var(--dark-low-opacity-primary-container);
+
+      --surface: var(--surface-dark);
+
+      --border-color: var(--border-color-dark);
+      --border-color-inverse: var(--border-color-light);
+
+      --main-shadow: var(--dark-shadow);
+      --scheme-color: dark;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .app {
+    --primary: var(--dark-primary);
+    --on-primary: var(--dark-on-primary);
+    --inverse-primary: var(--dark-inverse-primary);
+    --primary-container: var(--dark-primary-container);
+    --on-primary-container: var(--dark-on-primary-container);
+    --low-opacity-primary-container: var(--dark-low-opacity-primary-container);
+
+    --surface: var(--surface-dark);
+
+    --border-color: var(--border-color-dark);
+    --border-color-inverse: var(--border-color-light);
+
+    --main-shadow: var(--dark-shadow);
+    --scheme-color: dark;
+    &.toggleMode {
+      --primary: var(--light-primary);
+      --on-primary: var(--light-on-primary);
+      --inverse-primary: var(--light-inverse-primary);
+      --primary-container: var(--light-primary-container);
+      --on-primary-container: var(--light-on-primary-container);
+      --low-opacity-primary-container: var(--light-low-opacity-primary-container);
+
+      --surface: var(--surface-light);
+
+      --border-color: var(--border-color-light);
+      --border-color-inverse: var(--border-color-dark);
+
+      --main-shadow: var(--light-shadow);
+      --scheme-color: light;
+    }
+  }
 }
 
 *,
@@ -71,6 +127,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .container {
@@ -85,17 +142,6 @@ body {
   @include madiaContainer;
 }
 
-@keyframes backgroundLight {
-  0% {
-    background-position: 0% 51%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 51%;
-  }
-}
 .app {
   @extend %fCol;
   height: 100vh;
@@ -103,131 +149,8 @@ body {
   overflow: auto;
   max-width: 100%;
   color-scheme: var(--scheme-color);
-  // background: var(--surface);
-  color: #e6f4f1;
-  background: linear-gradient(
-    135deg,
-    #55acdd,
-    #6298d7,
-    #7782c9,
-    #8b6ab2,
-    #9a5193,
-    #9f376e
-  );
-  background-size: 1200% 1200%;
-
-  animation: backgroundLight 10s ease infinite;
-
-  @media (prefers-color-scheme: light) {
-    --primary: var(--light-primary);
-    --on-primary: var(--light-on-primary);
-    --primary-container: var(--light-primary-container);
-    --on-primary-container: var(--dark-on-primary);
-
-    --inverse-primary: var(--dark-primary);
-
-    --surface: var(--surface-light);
-    --second-surface: var(--second-surface-light);
-    --second-surface-blend-mode: multiply;
-
-    --background: var(--background-light);
-    --background-inverse: var(--dark-on-primary-container);
-
-    --element: var(--element-light);
-    --text: var(--text-light);
-    --text-element: var(--text-element-light);
-
-    --dark: var(--on-primary-container);
-
-    --border-color: var(--border-color-light);
-    --border-color-inverse: var(--border-color-dark);
-
-    --main-shadow: var(--light-shadow);
-    --scheme-color: light;
-  }
-  @media (prefers-color-scheme: dark) {
-    --primary: var(--dark-primary);
-    --on-primary: var(--dark-on-primary);
-    --primary-container: var(--dark-primary-container);
-    --on-primary-container: var(--dark-on-primary-container);
-
-    --inverse-primary: var(--light-primary);
-
-    --surface: var(--surface-dark);
-    --second-surface: var(--second-surface-dark);
-    --second-surface-blend-mode: soft-light;
-
-    --background: var(--background-dark);
-    --background-inverse: var(--background-light);
-
-    --element: var(--element-dark);
-    --text: var(--text-dark);
-    --text-element: var(--text-element-dark);
-
-    --dark: var(--on-primary);
-
-    --border-color: var(--border-color-dark);
-    --border-color-inverse: var(--border-color-light);
-
-    --main-shadow: var(--dark-shadow);
-    --scheme-color: dark;
-  }
-  &.toggleMode {
-    @media (prefers-color-scheme: light) {
-      --primary: var(--dark-primary);
-      --on-primary: var(--dark-on-primary);
-      --primary-container: var(--dark-primary-container);
-      --on-primary-container: var(--dark-on-primary-container);
-
-      --inverse-primary: var(--light-primary);
-      --second-surface-blend-mode: soft-light;
-
-      --surface: var(--surface-dark);
-      --second-surface: var(--second-surface-dark);
-
-      --background: var(--background-dark);
-      --background-inverse: var(--background-light);
-
-      --element: var(--element-dark);
-      --text: var(--text-dark);
-      --text-element: var(--text-element-dark);
-
-      --dark: var(--on-primary);
-
-      --border-color: var(--border-color-dark);
-      --border-color-inverse: var(--border-color-light);
-
-      --main-shadow: var(--dark-shadow);
-      --scheme-color: dark;
-    }
-    @media (prefers-color-scheme: dark) {
-      --primary: var(--light-primary);
-      --on-primary: var(--light-on-primary);
-      --primary-container: var(--light-primary-container);
-      --on-primary-container: var(--dark-on-primary);
-
-      --inverse-primary: var(--dark-primary);
-
-      --surface: var(--surface-light);
-      --second-surface: var(--second-surface-light);
-      --second-surface-blend-mode: multiply;
-
-      --background: var(--background-light);
-      --background-inverse: var(--dark-on-primary-container);
-
-      --element: var(--element-light);
-      --text: var(--text-light);
-      --text-element: var(--text-element-light);
-
-      --dark: var(--on-primary-container);
-
-      --border-color: var(--border-color-light);
-      --border-color-inverse: var(--border-color-dark);
-
-      --main-shadow: var(--light-shadow);
-      --scheme-color: light;
-    }
-  }
+  background: var(--surface);
+  color: var(--on-primary-container);
 }
 
 @import "./components/navbar/navbar";
@@ -235,8 +158,6 @@ body {
 @import "./components/widget/widget";
 @import "./components/table/table";
 @import "./components/layouts/layout";
-@import "./pages/login/login";
-@import "./pages/signup/signup";
 @import "./pages/home/home";
 @import "./pages/dashboard/dashboard";
 @import "./pages/words/list/listWords";

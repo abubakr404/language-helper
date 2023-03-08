@@ -1,18 +1,9 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import authSlice from "./auth-slice";
+import themeSlice from "./theme-slice";
 
-const themeSlice = createSlice({
-  name: "theme",
-  initialState: { currentMode: false },
-  reducers: {
-    toggle(state, action) {
-      state.currentMode = !state.currentMode;
-    },
-  },
-});
-
-export const actions = themeSlice.actions;
 const store = configureStore({
-  reducer: themeSlice.reducer,
+  reducer: { auth: authSlice.reducer, theme: themeSlice.reducer },
 });
 
 export default store;
