@@ -1,6 +1,21 @@
 .dashboard {
-  .widgets {
-    display: flex;
-    gap: 1.5rem;
+  .widgets,
+  .panels-group {
+    @extend %f;
+  }
+  .widgets,
+  .panels,
+  .panels-group {
+    gap: 1.125rem;
+  }
+  .panels {
+    @extend %fCol;
+  }
+  .word-box {
+    @extend %fCenterV;
+    .word {
+      font-size: 4rem;
+      margin: 1.25rem 0;
+    }
   }
 }

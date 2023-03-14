@@ -1,16 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-const Widget = () => {
+const Widget = ({ title, quantity, icon }) => {
   return (
     <div className="widget">
-      <div className="left">
-        <span className="title">Completed Project</span>
-        <span className="counter">31</span>
-        <span className="link">See All Projects</span>
-      </div>
-      <div className="right">
-        <div className="toggler-arrow">
-          <FontAwesomeIcon icon={faChevronDown} />
+      <div className="row">
+        <div className="col">
+          <span className="title">{title}</span>
+          <span className="counter">{quantity}</span>
+        </div>
+        <div className="col">
+          <div className="icon">
+            <FontAwesomeIcon icon={icon} />
+          </div>
         </div>
       </div>
     </div>

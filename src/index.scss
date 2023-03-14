@@ -6,17 +6,17 @@ html {
 
 :root {
   /* --------------- light colors set ----------------- */
-  --surface-light: #{$mainSurfaceLight};
+  --surface-light: #{rgba($primary90, 0.125)};
 
   --light-primary: #{$lightPrimary};
   --light-on-primary: #{$lightOnPrimary};
   --light-inverse-primary: #{$lightInversePrimary};
   --light-primary-container: #{$lightPrimaryContainer};
   --light-on-primary-container: #{$lightOnPrimaryContainer};
-  --light-low-opacity-primary-container: #{rgba($lightPrimaryContainer, 0.4)};
+  --light-low-opacity-primary-container: #{rgba($lightPrimaryContainer, 0.75)};
 
   /* --------------- dark colors set ----------------- */
-  --surface-dark: #{$mainSurfaceDark};
+  --surface-dark: #{$primary10};
 
   --dark-primary: #{$darkPrimary};
   --dark-on-primary: #{$darkOnPrimary};
@@ -26,12 +26,13 @@ html {
   --dark-low-opacity-primary-container: #{rgba($darkPrimaryContainer, 0.35)};
 
   /* --------------- geanral var set ----------------- */
+  --primary-gradient: linear-gradient(to right, #55acdd, #00d9d3);
 
   --main-transition: #{$mainTransition};
 
   --main-border-color: var(--dark-primary);
 
-  --main-border-radius: 0.3125rem;
+  --main-border-radius: 0.625rem;
 
   --dark-shadow: 0 0.875rem 1.875rem #{rgba($primary10, 0.2)},
     0 0.625rem 0.625rem #{rgba($primary10, 0.2)};
@@ -143,10 +144,10 @@ body {
 }
 
 .app {
-  @extend %fCol;
   height: 100vh;
+  height: 100svh;
   width: 100vw;
-  overflow: auto;
+  width: 100svw;
   max-width: 100%;
   color-scheme: var(--scheme-color);
   background: var(--surface);

@@ -1,10 +1,11 @@
 .widget {
   flex: 1;
   min-height: 8rem;
-  box-shadow: var(--main-shadow);
+  // box-shadow: var(--main-shadow);
   padding: 1.5rem;
   color: var(--text-light);
   border-radius: var(--main-border-radius);
+  background-color: var(--low-opacity-primary-container);
   @extend %fSpacer;
   .left {
     @extend %fSpacerY;
@@ -21,13 +22,13 @@
   .right {
     @extend %fSpacerY;
   }
-  &:nth-of-type(1) {
-    background-color: #3f51b5;
-  }
-  &:nth-of-type(2) {
-    background-color: #009688;
-  }
-  &:nth-of-type(3) {
-    background-color: #e91e63;
-  }
+  // &:nth-of-type(1) {
+  //   background-color: #3f51b5;
+  // }
+  // &:nth-of-type(2) {
+  //   background-color: #009688;
+  // }
+  // &:nth-of-type(3) {
+  //   background-color: #e91e63;
+  // }
 }

@@ -1,109 +1,28 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMessage, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
+
 const List = () => {
-  const wordsData = [
-    {
-      id: 1,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 2,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 3,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 4,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 5,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 6,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 7,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 8,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-    {
-      id: 9,
-      name: "ahmed",
-      projectName: "Ahmed Hassan",
-      conact: [
-        { link: "mailto:a@a.com", icon: faMessage },
-        { link: "#", icon: faFacebookF },
-        { link: "#", icon: faTwitter },
-        { link: "tel:+24990421999", icon: faPhone },
-      ],
-    },
-  ];
+  const [wordsData, setWordsData] = useState([]);
+  const apiUri = useSelector((state) => state.environment.apiUri);
+  useEffect(() => {
+    const { token } = JSON.parse(localStorage.getItem("user"));
+    const getWords = async () => {
+      try {
+        const { data } = await axios.get(apiUri + "words", {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        });
+        setWordsData(data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getWords();
+  }, []);
+
   return (
     <section className="content words">
       <div className="content-container">
@@ -115,26 +34,16 @@ const List = () => {
         </div>
         <div className="words-container">
           {wordsData.map((word) => (
-            <div className="word-card" key={word.id}>
-              <div className="avatar-container"></div>
+            <div className="word-card" key={word._id}>
               <div className="info">
-                <div className="name">{word.name}</div>
-                <span className="title">{word.projectName}</span>
+                <div className="name">{word.word}</div>
+                <span className="title">{word.sentence}</span>
               </div>
-              <ul className="contact">
-                {word.conact.map((con, i) => (
-                  <li key={i}>
-                    <a className="social-link" href={con.link}>
-                      <FontAwesomeIcon icon={con.icon} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
               <div className="actions">
-                <Link to={`${word.id}`} className="link inverse">
-                  See More
+                <Link to={`${word._id}`} className="link inverse">
+                  Details
                 </Link>
-                <button className="button danger">Delete</button>
+                <button className="button">Delete</button>
               </div>
             </div>
           ))}

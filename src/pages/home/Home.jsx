@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth-slice";
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
   const [signUpData, setSignUpData] = useState({ name: "", email: "", password: "" });
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
   const [signUpErrorMessage, setSignUpErrorMessage] = useState("");
-  const apiUri = "http://localhost:3000/api/v1/";
+  const apiUri = useSelector((state) => state.environment.apiUri);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleChange = (prevData, ele) => ({

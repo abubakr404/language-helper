@@ -1,86 +1,130 @@
-// import avatar from "../../../assets/images/avatar.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBarsStaggered, faBookAtlas, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faUser,
-//   faPhone,
-//   faFolder,
-//   faEnvelope,
-//   faPlus,
-// } from "@fortawesome/free-solid-svg-icons";
-// import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const New = () => {
+  const [wordData, setWordData] = useState({ word: "", sentence: "", level: "normal" });
+  const [wordError, setWordError] = useState("");
+  const apiUri = useSelector((state) => state.environment.apiUri);
+  const { token } = JSON.parse(localStorage.getItem("user"));
+
+  const handleWordSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const word = await axios.post(apiUri + "words", wordData, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      setWordData({ word: "", sentence: "", level: "normal" });
+      setWordError(JSON.stringify(word.data));
+    } catch (error) {
+      console.log(error);
+      setWordError(error.response.data.msg);
+    }
+  };
+
   return (
-    <section className="content new-client">
+    <section className="content">
       <div className="content-container">
         <div className="content-head">
+          <h2 className="main-title">New Word</h2>
           <Link to=".." className="link">
             back
           </Link>
         </div>
-        <form className="client-form">
-          <fieldset className="clinet-info">
-            <legend>Client Information</legend>
+        <div className="word-form">
+          <form onSubmit={handleWordSubmit}>
             <div className="form-group">
-              <label className="name">Client Name</label>
-              <div className="input">
-                {/* <FontAwesomeIcon icon={faUser} /> */}
-                <input type="text" name="name" placeholder="Name" />
-              </div>
+              <FontAwesomeIcon icon={faBookAtlas} />
+              <input
+                type="text"
+                name="word"
+                value={wordData.word}
+                onChange={(e) =>
+                  setWordData((prevData) => ({
+                    ...prevData,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+                placeholder="Enter the new word"
+              />
             </div>
             <div className="form-group">
-              <label>Client Project</label>
-              <div className="input">
-                {/* <FontAwesomeIcon icon={faFolder} /> */}
-                <input type="text" name="client-project" placeholder="Project name" />
-              </div>
+              <FontAwesomeIcon icon={faBarsStaggered} />
+              <input
+                type="text"
+                name="sentence"
+                value={wordData.sentence}
+                onChange={(e) =>
+                  setWordData((prevData) => ({
+                    ...prevData,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+                placeholder="Enter example sentence"
+              />
             </div>
             <div className="form-group">
-              <label>Client Email</label>
-              <div className="input">
-                {/* <FontAwesomeIcon icon={faEnvelope} /> */}
-                <input type="email" name="email" placeholder="Email address" />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Client Phone</label>
-              <div className="input">
-                {/* <FontAwesomeIcon icon={faPhone} /> */}
-                <input type="text" name="phone" placeholder="Phone number" />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Client Facebook</label>
-              <div className="input">
-                {/* <FontAwesomeIcon icon={faFacebookF} /> */}
-                <input type="text" name="facebook" placeholder="Facebook Link" />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Client Twitter</label>
-              <div className="input">
-                {/* <FontAwesomeIcon icon={faTwitter} /> */}
-                <input type="text" name="twitter" placeholder="Twitter Link" />
-              </div>
-            </div>
-          </fieldset>
-          <fieldset className="client-image">
-            <legend>Client Image</legend>
-            <div className="form-group">
-              <label htmlFor="client">
-                <input type="file" name="clientImg" id="client" />
-                {/* <img src={avatar} name="clientImage" /> */}
+              <label className="item" htmlFor="esayLevel">
+                <input
+                  type="radio"
+                  name="level"
+                  id="esayLevel"
+                  onChange={(e) =>
+                    setWordData((prevData) => ({
+                      ...prevData,
+                      [e.target.name]: e.target.value,
+                    }))
+                  }
+                  checked={wordData.level === "esay"}
+                  value="esay"
+                />
+                <span>Esay</span>
+              </label>
+              <label className="item" htmlFor="normalLevel">
+                <input
+                  type="radio"
+                  name="level"
+                  id="normalLevel"
+                  onChange={(e) =>
+                    setWordData((prevData) => ({
+                      ...prevData,
+                      [e.target.name]: e.target.value,
+                    }))
+                  }
+                  checked={wordData.level === "normal"}
+                  value="normal"
+                />
+                <span>Normal</span>
+              </label>
+              <label className="item" htmlFor="hardLevel">
+                <input
+                  type="radio"
+                  name="level"
+                  id="hardLevel"
+                  onChange={(e) =>
+                    setWordData((prevData) => ({
+                      ...prevData,
+                      [e.target.name]: e.target.value,
+                    }))
+                  }
+                  checked={wordData.level === "hard"}
+                  value="hard"
+                />
+                <span>Hard</span>
               </label>
             </div>
-          </fieldset>
-          <div className="actions">
-            <button className="submit">
-              {/* <FontAwesomeIcon icon={faPlus} /> */}
-              <span className="title">Add Client</span>
+            {wordError && <div className="form-group error">{wordError}</div>}
+            <button className="button">
+              <FontAwesomeIcon icon={faPlus} />
+              Add Word
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </section>
   );

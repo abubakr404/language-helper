@@ -1,12 +1,15 @@
 .app {
-  // @extend %fRowS;
-  // overflow: auto;
+  padding: 1rem;
+  .page {
+    @extend %f;
+    height: 100%;
+    width: 100%;
+  }
   .page-content {
     @extend %fCol;
     flex: 1;
-    height: 100%;
-    max-height: 100%;
     overflow: auto;
+    padding: 0 1.125rem;
   }
   .actions {
     @extend %f;
@@ -39,7 +42,7 @@
     border: 0.0625rem solid #55acdd;
     border-radius: var(--main-border-radius);
     transition: transform 80ms ease-in;
-    background: linear-gradient(to right, #55acdd, #00d9d3) no-repeat 0 0 / cover;
+    background: var(--primary-gradient) no-repeat 0 0 / cover;
     &:active {
       transform: scale(0.95);
     }
@@ -61,16 +64,13 @@
   }
   .content {
     @extend %fCol;
-    flex: 1;
     gap: 1.5rem;
-    margin: 1.5rem;
-    position: relative;
-    // max-height: calc(100vh - var(--header-height));
+    margin: 1.125rem 0;
   }
   .content-container {
     border-radius: var(--main-border-radius);
-    background: var(--primary-container);
-    box-shadow: var(--main-shadow);
+    background: var(--low-opacity-primary-container);
+    // box-shadow: var(--main-shadow);
     max-width: 100%;
     padding: 1.5rem;
     overflow: auto;
@@ -80,28 +80,34 @@
     @extend %fSpacerC;
     margin-bottom: 1.5rem;
   }
+  .item {
+    @extend %fRowC;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
   .main-title {
     @extend %fRowC;
-    margin: 0;
-    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+    font-size: 1.125rem;
     position: relative;
     &::before {
-      background-color: var(--inverse-primary);
+      background: var(--primary-container);
       height: 0.1875rem;
-      width: 5rem;
+      width: 3rem;
     }
     &::after {
-      background-color: var(--on-primary-container);
-      height: 0.35rem;
-      width: 2.5rem;
+      background: var(--primary-gradient);
+      height: 0.325rem;
+      width: 2rem;
     }
     &::before,
     &::after {
       content: "";
       position: absolute;
-      border-radius: 10rem;
-      bottom: -0.3125rem;
-      transform: translateY(50%);
+      border-radius: 0.0875rem;
+      transform: translate(50%, 50%);
+      bottom: -0.5rem;
+      right: 50%;
     }
   }
   form {

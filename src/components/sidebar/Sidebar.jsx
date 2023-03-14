@@ -1,19 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGauge,
-  faEnvelope,
-  faUsers,
-  faFolder,
+  faRightFromBracket,
   faCircleUser,
   faGear,
+  faMoneyCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import { authActions } from "../../store/auth-slice";
 import { Link, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   return (
-    <>
+    <div className="sidebar-container">
       <div className="logo">
-        <Link to="/">
+        <Link to="/" className="active">
           <span>Languages Helper</span>
         </Link>
       </div>
@@ -22,13 +24,13 @@ const Sidebar = () => {
           <li>
             <NavLink to="/">
               <FontAwesomeIcon icon={faGauge} />
-              <span>Dashboard</span>
+              <span>Home</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="words">
-              <FontAwesomeIcon icon={faFolder} />
-              <span>Words</span>
+              <FontAwesomeIcon icon={faMoneyCheck} />
+              <span>My Words</span>
             </NavLink>
           </li>
           <li>
@@ -37,15 +39,17 @@ const Sidebar = () => {
               <span>Profile</span>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="settings">
-              <FontAwesomeIcon icon={faGear} />
-              <span>Settings</span>
-            </NavLink>
-          </li>
         </ul>
       </nav>
-    </>
+      <div className="options">
+        <ul className="options-list">
+          <li className="link item" onClick={() => dispatch(authActions.logout())}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+            <span>logout</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

@@ -78,7 +78,7 @@
     z-index: 100;
   }
   .overlay {
-    background: linear-gradient(to right, #55acdd, #00d9d3) no-repeat 0 0 / cover;
+    background: var(--primary-gradient) no-repeat 0 0 / cover;
     color: var(--on-primary);
     position: relative;
     left: -100%;
