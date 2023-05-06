@@ -1,6 +1,5 @@
 import { faBarsStaggered, faBookAtlas, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { environmentActions } from "../../store/environment-slice";
 import { notificationActions } from "../../store/notification-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -20,7 +19,6 @@ const Word = () => {
         },
       });
       setWordData({ word: "", sentence: "", level: "normal" });
-      dispatch(environmentActions.wordsFetch());
       dispatch(notificationActions.close());
       dispatch(
         notificationActions.addMessage(

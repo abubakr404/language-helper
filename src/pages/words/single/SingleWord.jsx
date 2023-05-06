@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { notificationActions } from "../../../store/notification-slice";
-import { environmentActions } from "../../../store/environment-slice";
 import axios from "axios";
 
 const Single = () => {
@@ -24,7 +23,6 @@ const Single = () => {
           authorization: `Bearer ${token}`,
         },
       });
-      dispatch(environmentActions.wordsFetch());
       dispatch(notificationActions.close());
       dispatch(notificationActions.addMessage("deleted successfully"));
       dispatch(notificationActions.open());
@@ -47,7 +45,6 @@ const Single = () => {
           authorization: `Bearer ${token}`,
         },
       });
-      dispatch(environmentActions.wordsFetch());
       dispatch(notificationActions.close());
       dispatch(
         notificationActions.addMessage(
