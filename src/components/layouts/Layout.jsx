@@ -10,7 +10,6 @@ import axios from "axios";
 const DashboardLayout = () => {
   const dispatch = useDispatch();
   const apiUri = useSelector((state) => state.environment.apiUri);
-  const wordsReFetch = useSelector((state) => state.environment.wordsFetchRefersh);
   useEffect(() => {
     const { token } = JSON.parse(localStorage.getItem("user"));
     const getWords = async () => {

@@ -10,6 +10,7 @@
       content: "";
       @extend %aCenter;
       border-radius: 50%;
+      cursor: pointer;
     }
     &::after {
       @extend %transition;

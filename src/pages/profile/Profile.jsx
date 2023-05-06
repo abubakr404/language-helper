@@ -10,11 +10,9 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { notificationActions } from "../../store/notification-slice";
-import { environmentActions } from "../../store/environment-slice";
 import axios from "axios";
 
 const Single = () => {
-  const userReFetch = useSelector((state) => state.environment.userFetchRefersh);
   const apiUri = useSelector((state) => state.environment.apiUri);
   const inputRef = useRef(null);
   const [isEditable, setIsEditable] = useState(false);
@@ -79,7 +77,6 @@ const Single = () => {
       dispatch(notificationActions.close());
       dispatch(notificationActions.addMessage("The profile was updated successfully"));
       dispatch(notificationActions.open());
-      dispatch(environmentActions.userFetch());
     } catch (error) {
       dispatch(notificationActions.close());
       dispatch(
@@ -117,7 +114,7 @@ const Single = () => {
     !localStorage.getItem("userInfo") && getUser();
     localStorage.getItem("userInfo") &&
       setUserData(JSON.parse(localStorage.getItem("userInfo")));
-  }, [userReFetch]);
+  }, []);
 
   useEffect(() => {
     isEditable && inputRef.current.focus();
