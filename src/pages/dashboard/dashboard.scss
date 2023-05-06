@@ -1,4 +1,7 @@
 .dashboard {
+  .panels-group {
+    flex-wrap: wrap;
+  }
   .widgets,
   .panels-group {
     @extend %f;
@@ -16,6 +19,20 @@
     .word {
       font-size: 4rem;
       margin: 1.25rem 0;
+    }
+  }
+  .add-word {
+    @extend %fCol;
+  }
+  .words-group {
+    @extend %fWrapper;
+    gap: 0.5rem;
+    margin: 0;
+    .name {
+      background: var(--primary-gradient);
+      padding: 0.25rem 1.5rem;
+      color: var(--on-primary);
+      border-radius: 5rem;
     }
   }
 }

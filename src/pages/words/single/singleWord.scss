@@ -1,25 +1,48 @@
-.client-container {
-  @extend %fRowCY;
-  gap: 1.5rem;
-  .avatar-container {
-    width: 15rem;
-    height: 15rem;
-    img {
-      max-width: 100%;
+.single-word {
+  .word-container {
+    @extend %fSpacer;
+    gap: 1.5rem;
+  }
+  .info-group {
+    @extend %fSpacerXC;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    font-size: 0.875rem;
+    select {
+      border: none;
+      background: var(--surface);
+      padding: 0.5rem;
+    }
+    .sentence {
+      width: 100%;
+      font-size: 0.75rem;
+      &.editable {
+        border-bottom: 0.0625rem solid;
+      }
+    }
+    .sentence-group {
+      @extend %f;
+      gap: 1rem;
+      width: 100%;
+      height: max-content;
+    }
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    h3,
+    p {
+      margin: 0;
     }
   }
-}
-.client-details {
-  flex: 1;
-  font-size: 0.875rem;
-  padding: 1.5rem;
-  border-radius: var(--main-border-radius);
-  .details {
-    @extend %fCol;
-    gap: 0.25rem;
+  .button.icon {
+    font-size: 1rem;
+    padding: 1rem;
   }
-  .contact {
-    display: flex;
-    gap: 0.5rem;
+  .button.save {
+    margin: 1rem 0px 0 auto;
+    padding: 1rem;
   }
 }

@@ -1,0 +1,29 @@
+.word-form {
+  .form-group:last-of-type {
+    flex-wrap: wrap;
+  }
+  .item input[name="level"] {
+    margin: 0 0.125rem 0 0.625rem;
+    position: relative;
+    &::after,
+    &::before {
+      content: "";
+      @extend %aCenter;
+      border-radius: 50%;
+    }
+    &::after {
+      @extend %transition;
+      background: transparent;
+    }
+    &:checked::after {
+      width: 0.5rem;
+      height: 0.5rem;
+      background: var(--on-primary);
+    }
+    &::before {
+      width: 0.875rem;
+      height: 0.875rem;
+      background: var(--on-primary-container);
+    }
+  }
+}

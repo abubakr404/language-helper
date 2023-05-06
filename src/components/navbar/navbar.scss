@@ -5,15 +5,31 @@
   position: sticky;
   top: 0;
   z-index: 10000000;
-  // box-shadow: var(--main-shadow);
+  padding: 0 1.125rem;
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    background-color: var(--surface);
+    filter: opacity(0.925);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
   .wrapper {
     @extend %fSpacerC;
     flex: 1;
     gap: 1.5rem;
     .theme,
-    .search,
     h4 {
       min-width: max-content;
+    }
+    @include in(toMobile) {
+      .theme .title,
+      h4 {
+        display: none;
+      }
     }
   }
 }

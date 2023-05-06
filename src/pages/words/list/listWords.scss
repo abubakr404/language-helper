@@ -5,37 +5,45 @@
 }
 .words-container {
   @include responGridCol(16rem);
+  @include in(smallMobile) {
+    grid-template-columns: 1fr;
+  }
 }
 .word-card {
   @extend %fCol;
-  background: var(--surface-light);
-  box-shadow: var(--main-shadow);
-  color: var(--dark);
-  border-radius: calc(0.0625rem + var(--main-border-radius));
-  .avatar-container {
-    background: var(--dark);
-    min-height: 6.5rem;
-    position: relative;
-    margin-bottom: 2rem;
-    border-radius: var(--main-border-radius) var(--main-border-radius) 0 0;
+  background: var(--inverse-primary);
+  padding: 2rem;
+  position: relative;
+  color: var(--on-primary-container);
+  @include in(toMobile) {
+    padding: 1.25rem;
   }
-  img {
-    background: var(--dark);
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    border: 0.3125rem solid var(--dark);
-    object-fit: cover;
+  &::after,
+  &:before {
+    content: "";
     position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translate(50%, 25%);
+    right: 0;
+    top: 0;
+    border: 0.5rem solid;
+    border-color: var(--on-primary) var(--on-primary) var(--primary) var(--primary);
+  }
+  &::after {
+    right: 100%;
+    transform: translateX(100%);
+    border-color: var(--on-primary) var(--primary) var(--primary) var(--on-primary);
   }
   .info {
     @extend %fColC;
+    gap: 0.875rem;
     .name {
-      font-size: 1.25rem;
+      font-size: 1.75em;
       font-weight: bold;
+      @include in(toMobile) {
+        font-size: calc(0.75rem + 1.4vw);
+      }
+    }
+    .title {
+      font-size: 0.875rem;
     }
   }
   .contact {

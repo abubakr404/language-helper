@@ -6,14 +6,14 @@ html {
 
 :root {
   /* --------------- light colors set ----------------- */
-  --surface-light: #{rgba($primary90, 0.125)};
+  --surface-light: #{$primary95};
 
   --light-primary: #{$lightPrimary};
   --light-on-primary: #{$lightOnPrimary};
   --light-inverse-primary: #{$lightInversePrimary};
   --light-primary-container: #{$lightPrimaryContainer};
   --light-on-primary-container: #{$lightOnPrimaryContainer};
-  --light-low-opacity-primary-container: #{rgba($lightPrimaryContainer, 0.75)};
+  --light-low-opacity-primary-container: #e5f6ffc9;
 
   /* --------------- dark colors set ----------------- */
   --surface-dark: #{$primary10};
@@ -23,7 +23,7 @@ html {
   --dark-inverse-primary: #{$darkInversePrimary};
   --dark-primary-container: #{$darkPrimaryContainer};
   --dark-on-primary-container: #{$darkOnPrimaryContainer};
-  --dark-low-opacity-primary-container: #{rgba($darkPrimaryContainer, 0.35)};
+  --dark-low-opacity-primary-container: #0c1d26d6;
 
   /* --------------- geanral var set ----------------- */
   --primary-gradient: linear-gradient(to right, #55acdd, #00d9d3);
@@ -40,9 +40,15 @@ html {
     0 0.625rem 0.625rem #{rgba($primary50, 0.2)};
 
   --header-height: 5rem;
-  --sidebar-width: 15rem;
+  --sidebar-width: 4.35rem;
   --main-padding-top: 2rem;
   --main-padding-bottom: 2rem;
+  @media (max-width: 320px) {
+    font-size: 11px;
+  }
+  @include in(toSmall) {
+    font-size: 14px;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -154,15 +160,17 @@ body {
   color: var(--on-primary-container);
 }
 
+@import "./components/notification/notification";
 @import "./components/navbar/navbar";
 @import "./components/sidebar/sidebar";
 @import "./components/widget/widget";
+@import "./components/search/search";
 @import "./components/table/table";
 @import "./components/layouts/layout";
+@import "./components/word/word";
 @import "./pages/home/home";
 @import "./pages/dashboard/dashboard";
 @import "./pages/words/list/listWords";
 @import "./pages/words/single/singleWord";
-@import "./pages/words/new/newWord";
 @import "./pages/profile/profile";
 @import "./pages/errors/errors";

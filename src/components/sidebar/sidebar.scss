@@ -1,36 +1,114 @@
 .sidebar-container {
   @extend %fCol;
-  background: var(--low-opacity-primary-container);
-  // color: var(--light-primary-container);
+  @extend %transition;
+  background: var(--on-primary);
+  box-shadow: var(--main-shadow);
   border-radius: var(--main-border-radius);
-  min-width: var(--sidebar-width);
+  width: var(--sidebar-width);
   padding: 0.25rem 0.75rem;
   height: 100%;
-  .logo-image {
-    max-width: 1.5rem;
+  &.active {
+    @include in(fromSmallMobile) {
+      --sidebar-width: 15rem;
+      span.tooltip {
+        display: none;
+      }
+      a,
+      .link {
+        span {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+      .logo {
+        h1 {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        .menu-bar {
+          right: 0;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+  li {
+    position: relative;
+  }
+  span.tooltip {
+    position: absolute;
+    right: -55%;
+    bottom: 50%;
+    transform: translate(110%, 60%);
+    margin-bottom: 0.5rem;
+    background: var(--primary-gradient);
+    color: var(--on-primary);
+    padding: 0.75rem;
+    width: max-content;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-shadow);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
   }
   .link,
   a {
-    @extend %transition;
-    padding: 1rem;
+    @extend %z1;
+    padding: 0.75rem 1rem;
     border-radius: var(--main-border-radius);
+    overflow: hidden;
+    white-space: nowrap;
+    span,
+    svg {
+      @extend %transition;
+    }
+    span {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &::before {
+      @extend %transition;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: var(--primary-gradient);
+      opacity: 0;
+    }
+    &:hover + span.tooltip,
+    &:focus-visible + span.tooltip {
+      @extend %transition;
+      opacity: 1;
+      transform: translate(100%, 60%);
+    }
     &.active,
     &:hover,
     &:focus-visible {
-      transition-property: background-image, color;
-      background: var(--primary-gradient);
       color: var(--on-primary);
+      &::before {
+        opacity: 1;
+      }
     }
   }
   .logo {
-    @extend %fCenter;
-    font-size: 1.125rem;
+    @extend %fSpacerC;
+    // font-size: 0.875rem;
     text-transform: uppercase;
-    height: var(--header-height);
-    a {
-      @extend %fRowCY;
-      padding: 1rem;
-      gap: 0.25rem;
+    padding: 0.875rem;
+    white-space: nowrap;
+    position: relative;
+    h1 {
+      @extend %transition;
+      font-size: 1rem;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .menu-bar {
+      @extend %hPCenter;
+      position: absolute;
     }
   }
   nav {
@@ -45,6 +123,21 @@
           font-size: 0.875rem;
           margin-left: 0.875rem;
         }
+      }
+    }
+  }
+  .options {
+    .options-list {
+      position: relative;
+      margin: 0.5rem 0;
+      .link:hover + span.tooltip,
+      .link:focus-visible + span.tooltip {
+        @extend %transition;
+        opacity: 1;
+        transform: translate(100%, 60%);
+      }
+      span.tooltip {
+        margin-bottom: 0.25rem;
       }
     }
   }

@@ -1,0 +1,22 @@
+.profile {
+  .form-container {
+    @extend %fWrapper;
+    margin-bottom: 0.5rem;
+    align-self: stretch;
+    gap: 0 1rem;
+  }
+  .form-group {
+    @extend %transition;
+    background: var(--low-opacity-primary-container);
+    &.disabled {
+      background: var(--on-primary);
+    }
+  }
+  .save {
+    margin-left: auto;
+  }
+  .col {
+    max-width: 100%;
+    width: 18rem;
+  }
+}

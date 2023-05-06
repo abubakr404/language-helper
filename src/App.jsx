@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ListWords from "./pages/words/list/ListWords";
 import SingleWord from "./pages/words/single/SingleWord";
 import NewWord from "./pages/words/new/NewWord";
+import Notification from "./components/notification/Notification";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
@@ -13,10 +14,12 @@ import { useSelector } from "react-redux";
 const App = () => {
   const currentMode = useSelector((state) => state.theme.mode);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isNotificationActive = useSelector((state) => state.notification.isActive);
   const Auth = ({ children }) => (isLoggedIn ? children : <Navigate to="home" />);
 
   return (
     <div className={currentMode ? "app toggleMode" : "app"}>
+      {isNotificationActive && <Notification />}
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />

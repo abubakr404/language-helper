@@ -1,27 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
 
 const List = () => {
-  const [wordsData, setWordsData] = useState([]);
-  const apiUri = useSelector((state) => state.environment.apiUri);
-  useEffect(() => {
-    const { token } = JSON.parse(localStorage.getItem("user"));
-    const getWords = async () => {
-      try {
-        const { data } = await axios.get(apiUri + "words", {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        setWordsData(data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getWords();
-  }, []);
+  const wordsData = JSON.parse(localStorage.getItem("words")) || [];
 
   return (
     <section className="content words">
@@ -36,14 +16,10 @@ const List = () => {
           {wordsData.map((word) => (
             <div className="word-card" key={word._id}>
               <div className="info">
-                <div className="name">{word.word}</div>
-                <span className="title">{word.sentence}</span>
-              </div>
-              <div className="actions">
-                <Link to={`${word._id}`} className="link inverse">
-                  Details
+                <Link to={`${word._id}`} className="name">
+                  {word.word}
                 </Link>
-                <button className="button">Delete</button>
+                <span className="title">{word.sentence}</span>
               </div>
             </div>
           ))}
