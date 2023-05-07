@@ -24,6 +24,9 @@
   .add-word {
     @extend %fCol;
   }
+  .hard-words {
+    max-height: 17.5rem;
+  }
   .words-group {
     @extend %fWrapper;
     gap: 0.5rem;
@@ -33,6 +36,10 @@
       padding: 0.25rem 1.5rem;
       color: var(--on-primary);
       border-radius: 5rem;
+      @include in(toMobile) {
+        font-size: small;
+        padding: 0.25rem 1.25rem;
+      }
     }
   }
 }

@@ -46,7 +46,7 @@ html {
   @media (max-width: 320px) {
     font-size: 11px;
   }
-  @include in(toSmall) {
+  @include in(toMobile) {
     font-size: 14px;
   }
 }
@@ -168,6 +168,7 @@ body {
 @import "./components/table/table";
 @import "./components/layouts/layout";
 @import "./components/word/word";
+@import "./components/pagination/pagination";
 @import "./pages/home/home";
 @import "./pages/dashboard/dashboard";
 @import "./pages/words/list/listWords";

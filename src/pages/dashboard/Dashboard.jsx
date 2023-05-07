@@ -6,14 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { notificationActions } from "../../store/notification-slice";
 import Word from "../../components/word/Word";
 import axios from "axios";
+import Pagination from "../../components/pagination/Pagination";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [hardWords, setHardWords] = useState([]);
+  const [hardWordsInPage, setHardWordsInPage] = useState([]);
   const [randomWord, setRandomWord] = useState("");
   const apiUri = useSelector((state) => state.environment.apiUri);
   const { token } = JSON.parse(localStorage.getItem("user"));
-  const localWords = JSON.parse(localStorage.getItem("words")) || [];
+  const localWords =
+    JSON.parse(localStorage.getItem("words")).filter((word) => word.level === "hard") ||
+    [];
 
   const getRandomWord = async () => {
     try {
@@ -32,10 +35,6 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    setHardWords(() => localWords.filter((word) => word.level === "hard"));
-  }, []);
-
   return (
     <section className="content dashboard">
       <div className="panels">
@@ -44,17 +43,22 @@ const Home = () => {
             <h3 className="main-title">Quick Add New Word</h3>
             <Word />
           </div>
-          <div className="content-container">
+          <div className="content-container hard-words">
             <div className="content-head">
               <h2 className="main-title">My Hard Words</h2>
             </div>
             <ul className="words-group">
-              {hardWords.map((hardword) => (
+              {hardWordsInPage.map((hardword) => (
                 <li key={hardword._id} className="name">
                   <Link to={`words/${hardword._id}`}>{hardword.word}</Link>
                 </li>
               ))}
             </ul>
+            <Pagination
+              setItemsInPage={setHardWordsInPage}
+              itemPerPage={15}
+              listItems={localWords}
+            />
           </div>
           <div className="word-box">
             <h3 className="main-title">Random Word</h3>

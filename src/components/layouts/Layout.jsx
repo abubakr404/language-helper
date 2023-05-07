@@ -30,7 +30,7 @@ const DashboardLayout = () => {
         dispatch(notificationActions.open());
       }
     };
-    getWords();
+    window.addEventListener("online", (event) => getWords());
   }, []);
 
   return (

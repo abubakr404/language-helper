@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const searchComponent = ({ allData, filterKeys }) => {
   const [query, setQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const maxResultsNumber = 6;
+  const minimumQueryLength = 2;
   useEffect(() => {
     setFilteredData(
       allData.filter(
@@ -19,8 +21,8 @@ const searchComponent = ({ allData, filterKeys }) => {
           ) || !query
       )
     );
-    // console.log(allData);
   }, [allData, query]);
+
   return (
     <div className="form-group search">
       <input
@@ -32,19 +34,22 @@ const searchComponent = ({ allData, filterKeys }) => {
         value={query}
       />
       <FontAwesomeIcon icon={faSearch} />
-      {query.length >= 2 && (
+      {query.length >= minimumQueryLength && (
         <ul className="form-group dropdown-results">
-          {filteredData.map((data) => (
-            <li key={data._id}>
-              <Link
-                to={`words/${data._id}`}
-                className="result"
-                onClick={() => setQuery("")}
-              >
-                {data.word}
-              </Link>
-            </li>
-          ))}
+          {filteredData.map(
+            (data, i) =>
+              i < maxResultsNumber && (
+                <li key={data._id}>
+                  <Link
+                    to={`words/${data._id}`}
+                    className="result"
+                    onClick={() => setQuery("")}
+                  >
+                    {data.word}
+                  </Link>
+                </li>
+              )
+          )}
           {filteredData.length === 0 && (
             <li>
               <a>No matched result found</a>

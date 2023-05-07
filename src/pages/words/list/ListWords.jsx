@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Pagination from "../../../components/pagination/Pagination";
 
 const List = () => {
+  const [wordsInPage, setWordsInPage] = useState([]);
   const wordsData = JSON.parse(localStorage.getItem("words")) || [];
 
   return (
@@ -13,7 +16,7 @@ const List = () => {
           </Link>
         </div>
         <div className="words-container">
-          {wordsData.map((word) => (
+          {wordsInPage.map((word) => (
             <div className="word-card" key={word._id}>
               <div className="info">
                 <Link to={`${word._id}`} className="name">
@@ -24,6 +27,11 @@ const List = () => {
             </div>
           ))}
         </div>
+        <Pagination
+          setItemsInPage={setWordsInPage}
+          itemPerPage={8}
+          listItems={wordsData}
+        />
       </div>
     </section>
   );
