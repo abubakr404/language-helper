@@ -15,7 +15,7 @@ const Notification = () => {
       setTimeout(() => {
         dispatch(notificationActions.close());
         dispatch(notificationActions.addMessage(""));
-      }, 5000);
+      }, 1500);
   }, [isNotificationActive]);
 
   return (
