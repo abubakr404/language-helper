@@ -10,27 +10,30 @@ import axios from "axios";
 const DashboardLayout = () => {
   const dispatch = useDispatch();
   const apiUri = useSelector((state) => state.environment.apiUri);
+  const { token } = JSON.parse(localStorage.getItem("user"));
+  const getWords = async () => {
+    try {
+      const { data } = await axios.get(apiUri + "words", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.setItem("words", JSON.stringify(data.data));
+    } catch (error) {
+      dispatch(notificationActions.close());
+      dispatch(
+        notificationActions.addMessage(
+          error.response ? error.response.data.msg : error.message
+        )
+      );
+      dispatch(notificationActions.open());
+    }
+  };
   useEffect(() => {
-    const { token } = JSON.parse(localStorage.getItem("user"));
-    const getWords = async () => {
-      try {
-        const { data } = await axios.get(apiUri + "words", {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        localStorage.setItem("words", JSON.stringify(data.data));
-      } catch (error) {
-        dispatch(notificationActions.close());
-        dispatch(
-          notificationActions.addMessage(
-            error.response ? error.response.data.msg : error.message
-          )
-        );
-        dispatch(notificationActions.open());
-      }
-    };
-    window.addEventListener("online", (event) => getWords());
+    let netWork = true;
+    window.addEventListener("offline", (event) => (netWork = false));
+    window.addEventListener("online", (event) => (netWork = true));
+    netWork && getWords();
   }, []);
 
   return (

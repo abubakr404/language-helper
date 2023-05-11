@@ -27,8 +27,7 @@ function Home() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await axios.post(apiUri + "auth/login", { ...loginData });
-      const { data } = user;
+      const { data } = await axios.post(apiUri + "auth/login", loginData);
       dispatch(authActions.login(data));
       navigate("/");
     } catch (error) {
@@ -45,8 +44,7 @@ function Home() {
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await axios.post(apiUri + "auth/register", { ...signUpData });
-      const { data } = user;
+      const { data } = await axios.post(apiUri + "auth/register", signUpData);
       dispatch(notificationActions.close());
       dispatch(notificationActions.addMessage("registered successfully"));
       dispatch(notificationActions.open());

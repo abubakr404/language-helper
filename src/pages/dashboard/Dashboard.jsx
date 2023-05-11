@@ -15,7 +15,7 @@ const Home = () => {
   const apiUri = useSelector((state) => state.environment.apiUri);
   const { token } = JSON.parse(localStorage.getItem("user"));
   const localWords =
-    JSON.parse(localStorage.getItem("words")).filter((word) => word.level === "hard") ||
+    JSON.parse(localStorage.getItem("words"))?.filter((word) => word.level === "hard") ||
     [];
 
   const getRandomWord = async () => {
